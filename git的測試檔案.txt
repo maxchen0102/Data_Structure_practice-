@@ -1,2 +1,1 @@
- test_one for generate file 
- 
+delete all text 
