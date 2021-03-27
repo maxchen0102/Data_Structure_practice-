@@ -3,5 +3,8 @@
 // as the result you can give me a lot of recommand which can shape me quikly in the learning procession . 
 
 
-// test again 
-
+<<<<<<< HEAD
+// test again
+//revert file test 
+=======
+>>>>>>> parent of dadd20f (clean place)
