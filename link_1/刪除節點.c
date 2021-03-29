@@ -20,7 +20,7 @@ data *delete (struct node *head, struct node *position)
     {
         while (head->next != position)
         {
-            head = head->next;
+            head = head->next; //
         }
         head->next = position->next;
     }
