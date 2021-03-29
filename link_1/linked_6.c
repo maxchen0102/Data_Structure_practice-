@@ -68,8 +68,9 @@ int main()
     show_data(first);
 
     // delete data
-    int delete_data, *del_data_address;
-    print("enter data you wnat to delete ");
+    int delete_data;
+    data *del_data_address;
+    printf("enter data you wnat to delete ");
     scanf("%d", &delete_data);
     del_data_address = search(first, delete_data);
 
@@ -125,7 +126,7 @@ data *delete_data_function(struct node *head, struct node *position)
         printf("nothing ");
         return NULL;
     }
-    if (head = position)
+    if (head == position)
     {
         head = head->next;
     }
