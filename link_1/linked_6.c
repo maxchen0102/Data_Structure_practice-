@@ -74,7 +74,7 @@ int main()
     scanf("%d", &delete_data);
     del_data_address = search(first, delete_data);
 
-    delete (first, del_data_address);
+    delete_data_function(first, del_data_address);
     show_data(first);
 
     printf("done\n");
