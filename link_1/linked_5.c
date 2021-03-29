@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+//印出串列結構
+
 typedef struct node
 {
     int data;
