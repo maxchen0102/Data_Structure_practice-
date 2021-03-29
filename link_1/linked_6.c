@@ -10,6 +10,7 @@ typedef struct node
 {
     int data;
     struct node *next;
+
 } data;
 
 //data *listA;
@@ -19,6 +20,8 @@ void show_data(data *);
 data *search(struct node *p, int item);
 
 void insert_data_function(struct node *p, int data);
+
+data *delete_data_function(struct node *head, struct node *position);
 
 int main()
 {
@@ -63,6 +66,16 @@ int main()
     insert_data_function(search(first, item), insert_data);
 
     show_data(first);
+
+    // delete data
+    int delete_data, *del_data_address;
+    print("enter data you wnat to delete ");
+    scanf("%d", &delete_data);
+    del_data_address = search(first, delete_data);
+
+    delete (first, del_data_address);
+    show_data(first);
+
     printf("done\n");
     return 0;
 }
@@ -103,4 +116,27 @@ void insert_data_function(struct node *p, int item)
     newnode->next = p->next;
 
     p->next = newnode;
+}
+
+data *delete_data_function(struct node *head, struct node *position)
+{
+    if (head == NULL)
+    {
+        printf("nothing ");
+        return NULL;
+    }
+    if (head = position)
+    {
+        head = head->next;
+    }
+    else
+    {
+        while (head->next != position)
+        {
+            head = head->next;
+        }
+        head->next = position->next;
+    }
+    free(position);
+    return head;
 }
