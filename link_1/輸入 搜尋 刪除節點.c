@@ -17,11 +17,11 @@ typedef struct node
 
 void show_data(data *);
 
-data *search(struct node *p, int item);
+data *search(struct node *p, int item); //印出串列值
 
-void insert_data_function(struct node *p, int data);
+void insert_data_function(struct node *p, int data); //插入串列
 
-data *delete_data_function(struct node *head, struct node *position);
+data *delete_data_function(struct node *head, struct node *position); //刪除串列
 
 int main()
 {
@@ -33,19 +33,19 @@ int main()
 
     for (int i = 0; i < num; i++)
     {
-        current = (data *)malloc(sizeof(data));
+        current = (data *)malloc(sizeof(data)); //開記憶體空間
         printf("enter the data ");
-        scanf("%d", &current->data);
+        scanf("%d", &current->data); //輸入串列數量
 
         if (i == 0)
         {
-            first = current;
+            first = current; //首節點設定
         }
         else
         {
             previous->next = current;
         }
-        current->next = NULL;
+        current->next = NULL; //節點接地
         previous = current;
     }
 
@@ -55,9 +55,8 @@ int main()
     //search data
 
     int item;
-    printf("enter your insert position  ");
+    printf("enter your insert data position   ");
     scanf("%d", &item);
-    //printf("%p\n", search(first, item));
 
     printf("enter yourt data");
     int insert_data;
