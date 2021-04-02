@@ -7,7 +7,9 @@
 typedef struct tagStack
 {
     int item[MAX];
-    int top = 1;
+
+public:
+    const int top = -1;
 
 } Stack;
 
