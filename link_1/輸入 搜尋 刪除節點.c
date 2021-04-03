@@ -96,7 +96,7 @@ data *search(struct node *p, int item)
 {
     while (p != 0)
     {
-        if (p->data == item)
+        if (p->data == item) // p==item p為此資料的位置 p->next回傳p 這個p是資料位置的上一個節點位址
         {
             return p;
         }
@@ -113,7 +113,16 @@ void insert_data_function(struct node *p, int item)
     newnode = (data *)malloc(sizeof(data));
 
     newnode->data = item;
-    newnode->next = p->next;
+    newnode->next = p->next; // 插在我們要的資料的位置後段
+    /*
+    if 要插在我們要的資料前端   p 要是我們原本的資料位置的前一個  在serch function 中 (p->next)->data==item 時回傳此p
+     然後在此函式 
+     newnode->data =item ; 
+    newnode->next=p->next; 
+     p->next=newnode; 
+   
+    
+        */
 
     p->next = newnode;
 }
@@ -136,6 +145,13 @@ data *delete_data_function(struct node *head, struct node *position)
             head = head->next;
         }
         head->next = position->next;
+
+        /* 
+        if p 欲刪除的資料的前一個節點 
+        tem=p->next; 
+        p->next=(p->next)->next; //因為p->next不是原本的 所以用個tem去指向原本的p->next 好讓最後的記憶體動作運行 
+        free(tem)
+        */
     }
     free(position);
     return head;

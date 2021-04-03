@@ -37,6 +37,8 @@ int main()
     return 0;
 }
 
+
+
 void free_list(data *p)
 {
     data *tem; // 這個tem 是區域函數 離開此function就會消失 所以不用特別去釋放
