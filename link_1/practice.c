@@ -23,6 +23,8 @@ data *find_address(data *list, int item);
 
 void del_node(data *p, int del_data);
 
+void list_connect(data *p, data *p_2);
+
 int main()
 {
 
@@ -33,6 +35,16 @@ int main()
     data *listA; // 宣告listA
     listA = build_list(num);
     show(listA, num);
+
+    //======建立第二個串列part ====/
+
+    int num_2;
+    printf("enter the node_2 number :");
+    scanf("%d", &num_2);
+    data *listB;
+    listB = build_list(num_2);
+    show(listB, num_2);
+    list_connect(listA, listB);
 
     //======搜尋part =======//
     /* 
@@ -68,10 +80,10 @@ int main()
     */
 
     //=======印出節點數量part==========//
-    /* 
+
     printf("%d\n", list_num(listA));
     printf("done\n");
-    */
+
     //=========釋放記憶體空間part =========//
 
     /*
@@ -79,6 +91,16 @@ int main()
     show(listA, num);
     */
     return 0;
+}
+
+void list_connect(data *p, data *p_2)
+{
+    data *tem = p;
+    while (tem->next != NULL)
+    {
+        tem = tem->next;
+    }
+    tem->next = p_2;
 }
 
 void show(data *p, int num)
@@ -124,7 +146,9 @@ int list_num(data *p)
     {
         number++;
         p = p->next;
+        printf("%d", number);
     }
+    printf("\n");
     return number;
 }
 
