@@ -10,7 +10,10 @@ struct node
 typedef struct node data;
 
 void show(data *p, int num);
+
 data *build_list(int num);
+
+int list_num(data *p);
 
 int main()
 {
@@ -19,9 +22,12 @@ int main()
     scanf("%d", &num);
 
     data *listA; // 宣告listA
-    listA = build_list();
+    listA = build_list(num);
 
     show(listA, num);
+
+    printf("%d\n", list_num(listA));
+    printf("done\n");
 
     return 0;
 }
@@ -46,6 +52,7 @@ data *build_list(int num)
     for (int i = 0; i < num; i++)
     {
         p = (data *)malloc(sizeof(data));
+        printf("enter data %d ", i + 1);
         scanf("%d", &p->data);
         if (i == 0)
         {
@@ -59,4 +66,15 @@ data *build_list(int num)
         pre = p;
     }
     return list;
+}
+
+int list_num(data *p)
+{
+    int number = 0;
+    while (p != NULL)
+    {
+        number++;
+        p = p->next;
+    }
+    return number;
 }
