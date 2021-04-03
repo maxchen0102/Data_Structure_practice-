@@ -15,6 +15,8 @@ data *build_list(int num);
 
 int list_num(data *p);
 
+void list_free(data *p);
+
 int main()
 {
     int num;
@@ -28,6 +30,8 @@ int main()
 
     printf("%d\n", list_num(listA));
     printf("done\n");
+    list_free(listA);
+    show(listA, num);
 
     return 0;
 }
@@ -77,4 +81,15 @@ int list_num(data *p)
         p = p->next;
     }
     return number;
+}
+
+void list_free(data *p)
+{
+    data *tem;
+    while (p != NULL)
+    {
+        tem = p;
+        p = p->next;
+        free(tem);
+    }
 }

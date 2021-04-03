@@ -3,6 +3,9 @@
 
 /* 釋放動態記憶體空間
 */
+
+//  compiler 出現segmetation fault 就是成功釋放 因為記憶體錯誤
+
 typedef struct node
 {
     int data;
@@ -36,7 +39,7 @@ int main()
 
 void free_list(data *p)
 {
-    data *tem;
+    data *tem; // 這個tem 是區域函數 離開此function就會消失 所以不用特別去釋放
     while (p != 0)
     {
         tem = p;
