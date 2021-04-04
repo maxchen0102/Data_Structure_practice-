@@ -25,19 +25,32 @@ void del_node(data *p, int del_data);
 
 void list_connect(data *p, data *p_2);
 
+void show_circle_list(data *p);
+
+data *bulid_circle_list(number);
+
 int main()
 {
 
     //========建立串列part ========//
+    /* 
     int num;
     printf("enter the node number");
     scanf("%d", &num);
     data *listA; // 宣告listA
     listA = build_list(num);
     show(listA, num);
+    */
+
+    //=======建立環狀串列====///
+    int number;
+    print("enter the node number 0f circle list ");
+    scanf("%d", &number);
+    data *listC;
+    listC = build_circle_list(number);
 
     //======建立第二個串列part ====/
-
+    /* 
     int num_2;
     printf("enter the node_2 number :");
     scanf("%d", &num_2);
@@ -45,6 +58,7 @@ int main()
     listB = build_list(num_2);
     show(listB, num_2);
     list_connect(listA, listB);
+    */
 
     //======搜尋part =======//
     /* 
@@ -80,9 +94,10 @@ int main()
     */
 
     //=======印出節點數量part==========//
-
+    /* 
     printf("%d\n", list_num(listA));
     printf("done\n");
+    */
 
     //=========釋放記憶體空間part =========//
 
@@ -91,6 +106,18 @@ int main()
     show(listA, num);
     */
     return 0;
+}
+
+data *build_circle_list(, int number)
+{
+    data *p, *list, *pre;
+    for (int i = 0; i < number; i++)
+    {
+        p = (data *)malloc(sizeof(data));
+        printf("enter data %d= ", i + 1);
+        scanf("%d", &p->data);
+        if ()
+    }
 }
 
 void list_connect(data *p, data *p_2)
@@ -127,11 +154,12 @@ data *build_list(int num)
         scanf("%d", &p->data);
         if (i == 0)
         {
-            list = p;
+            list = p; // 在設定頭節點的時候
         }
         else
         {
-            pre->next = p;
+            pre->next = p; // pre 這個輔助節點 很重要 是串鏈整個list用的 p 只是當下開的節點 list 是整個串列頭
+                           //  是藉由pre的推移 去串鏈這個list
         }
         p->next = NULL;
         pre = p;

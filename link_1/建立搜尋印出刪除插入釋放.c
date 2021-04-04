@@ -105,11 +105,12 @@ data *build_list(int num)
         scanf("%d", &p->data);
         if (i == 0)
         {
-            list = p;
+            list = p; // 在設定頭節點的時候 list 和p 和pre都指向同一個節點
         }
         else
         {
-            pre->next = p;
+            pre->next = p; // pre 這個輔助節點 很重要 是串鏈整個list用的 p 只是當下開的節點 list 是整個串列頭
+                           //  是藉由pre的推移 去串鏈這個list
         }
         p->next = NULL;
         pre = p;
